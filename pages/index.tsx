@@ -55,7 +55,6 @@ export default function Home() {
     }
   }, []);
 
-
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     console.log("hello")
@@ -66,49 +65,6 @@ export default function Home() {
     }
     
     try {
-      const newMessage: Message = { role: 'user', content: inputValue };
-      setMessages((prevMessages) => [...prevMessages, newMessage]);
-      setInputValue('');
-
-      setLoading(true);
-      let updatedMessages = [...messages, newMessage];
-
-      const streamingOptions = {
-        temperature: 1,
-        maxTokens: 1000,
-        onStreamResult: (result?: { message: Message }, error?: Error) => {
-          if (error) {
-            console.error(error);
-            setLoading(false);
-          } else if (result) {
-            setLoading(false);
-
-            const lastMessage = updatedMessages[updatedMessages.length - 1];
-            if (lastMessage.role === 'user') {
-              setLoading(false);
-              updatedMessages = [
-                ...updatedMessages,
-                {
-                  role: 'assistant',
-                  content: result.message.content,
-                },
-              ];
-            } else {
-              updatedMessages = updatedMessages.map((message, index) => {
-                if (index === updatedMessages.length - 1) {
-                  return {
-                    ...message,
-                    content: message.content + result.message.content,
-                  };
-                }
-                return message;
-              });
-            }
-
-            setMessages(updatedMessages);
-          }
-        },
-      };
       console.log('inside the try attempt');
       console.log(userURL);
       console.log(`Type of URL: ${typeof userURL}`)
@@ -116,32 +72,61 @@ export default function Home() {
       const fetchedJobDescription = await fetchPageData(jobURL);
       setUserProfile(fetchedUserProfile);
       setJobDescription(fetchedJobDescription);
-      console.log(`userProfile: ${userProfile}`);
-      console.log(`jobDescription: ${jobDescription}`);
+
       // downloadCSV(jobData, location);
 
-      if ((window as any)?.ai) {
-        try {
-          console.log("OK")
-          const userResponse = await (window as any).ai.getCompletion(
-            { messages: [{ role: 'system', content: `insert prompt for user info summary ${userProfile}` }, ...messages, newMessage] },
-            streamingOptions
-          );
-          console.log(userResponse.message.content);
-          setProcessedUserProfile(userResponse.message.content);
+      //if ((window as any)?.ai) {
+      //  try {
+      //    console.log("OK")
+      //    const userResponse = await (window as any).ai.getCompletion(
+      //      { messages: [{ role: 'system', content: `insert prompt for user info summary ${userProfile}` }, ...messages, newMessage] },
+      //      streamingOptions
+      //    );
+      //    console.log(userResponse.message.content);
+      //    setProcessedUserProfile(userResponse.message.content);
           // const jobResponse = await (window as any).ai.getCompletion(
           //   { messages: [{ role: 'system', content: `insert prompt for job info summary ${jobDescription}` }] }
           // );
           // console.log(jobResponse.message.content);
           // setProcessedUserProfile(jobResponse.message.content);
-        } catch (e) {
+      //  } catch (e) {
+      //    console.error(e);
+      //  }
+        try {
+          console.log(processedUserProfile)
+          console.log(processedJobDescription)
+          const userResponse = await fetch("/api/generate", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ userInput: `Summarize the following LinkedIn profile: \n ${userProfile}` }),
+          });
+    
+          const userData = await userResponse.json();
+          if (userResponse.status !== 200) {
+            throw userData.error || new Error(`Request failed with status ${userResponse.status}`);
+          }
+          console.log(userData.output);
+          setProcessedUserProfile(userData.output.text);
+          const jobResponse = await fetch("/api/generate", {
+            method: "POST",
+            headers: {
+              "output-Type": "application/json",
+            },
+            body: JSON.stringify({ userInput: `Summarize the following job description: \n ${jobDescription}` }),
+          });
+    
+          const jobData = await jobResponse.json();
+          if (jobResponse.status !== 200) {
+            throw jobData.error || new Error(`Request failed with status ${jobResponse.status}`);
+          }
+          console.log(jobData.output);
+          setProcessedJobDescription(jobData.output.text);
+        }
+        catch (e) {
           console.error(e);
         }
-      }
-      else {
-        console.warn("AI not available in window");
-
-      }
 
       resetForm();
       // router.push('/chat');

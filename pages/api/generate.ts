@@ -13,7 +13,7 @@ const generateAction = async (request: any, response: any) => {
   const baseCompletion = await openai.createCompletion({
     model: "text-ada-001",
     prompt: `${basePromptPrefix}${request.body.userInput}`,
-    temperature: 0.3,
+    temperature: 0.2,
     max_tokens: 1000,
   });
 
