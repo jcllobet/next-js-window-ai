@@ -77,3 +77,9 @@ This project is licensed under the MIT License. Use it for anything!
 # Documentation OpenAI
 
 https://platform.openai.com/docs/introduction
+https://discord.gg/EPX5ESZJ
+https://drive.google.com/uc?id=1ExPZuW_rl_RMSGLDcBLdBMVmganecZoq&export=download
+https://windowai.io/
+https://github.com/NolanGC/oregon-trail-window-ai
+
+https://careers.google.com/jobs/results/82975161105425094/
