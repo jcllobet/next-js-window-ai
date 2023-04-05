@@ -10,6 +10,10 @@ export interface SharedState {
   setUserProfile: (value: string) => void;
   jobDescription: string;
   setJobDescription: (value: string) => void;
+  processedUserProfile: string;
+  setProcessedUserProfile: (value: string) => void;
+  processedJobDescription: string;
+  setProcessedJobDescription: (value: string) => void;
 }
 
 const SharedContext = createContext<SharedState | null>(null);

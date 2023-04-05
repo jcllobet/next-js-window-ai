@@ -1,0 +1,343 @@
+function getDfd() {let yFn,nFn;const p=new Promise(function(y, n){yFn=y;nFn=n;});p.resolve=yFn;p.reject=nFn;return p;}
+          window.lazyloader = getDfd();
+          window.tracking = getDfd();
+          window.impressionTracking = getDfd();
+          window.ingraphTracking = getDfd();
+          window.appDetection = getDfd();
+          window.pemTracking = getDfd();
+Rajakulasekhar Ramakrishnan - MBA Product Consultant - Microsoft | LinkedIn
+{"@context":"http://schema.org","@graph":[{"@type":"Person","address":{"@type":"PostalAddress","addressLocality":"New York, New York, United States"},"alumniOf":[{"@type":"Organization","name":"Rethink food","member":{"@type":"OrganizationRole","startDate":"2022-08","endDate":"2022-12"}},{"@type":"Organization","name":"Infoblox","url":"https://www.linkedin.com/company/infoblox?trk=ppro_cprof","location":"India","member":{"@type":"OrganizationRole","startDate":"2021-04","endDate":"2022-04"}},{"@type":"Organization","name":"Infoblox","url":"https://www.linkedin.com/company/infoblox?trk=ppro_cprof","location":"Bengaluru Area, India","member":{"@type":"OrganizationRole","startDate":"2018-08","endDate":"2021-03"}},{"@type":"Organization","name":"Infoblox","url":"https://www.linkedin.com/company/infoblox?trk=ppro_cprof","location":"Bengaluru Area, India","member":{"@type":"OrganizationRole","startDate":"2018-01","endDate":"2018-07"}},{"@type":"EducationalOrganization","name":"Cornell Johnson Graduate School of Management","url":"https://www.linkedin.com/school/cornelljohnsonmba/","member":{"@type":"OrganizationRole","startDate":"2022-05","endDate":"2023-05"}},{"@type":"EducationalOrganization","name":"Cornell Tech","url":"https://www.linkedin.com/school/cornell-tech/","member":{"@type":"OrganizationRole","startDate":"2022-05","endDate":"2023-05"}},{"@type":"EducationalOrganization","name":"Cornell University","url":"https://www.linkedin.com/school/cornell-university/","member":{"@type":"OrganizationRole","startDate":"2022-05","endDate":"2023-05"}},{"@type":"EducationalOrganization","name":"PES University","url":"https://www.linkedin.com/school/pesuniversity/","member":{"@type":"OrganizationRole","startDate":2014,"endDate":2018}}],"awards":[],"image":{"@type":"ImageObject","contentUrl":"https://media.licdn.com/dms/image/C4E03AQFsdVHJGn1d4A/profile-displayphoto-shrink_800_800/0/1658798775357?e=2147483647&v=beta&t=OLc6VT4k0PUUFLtZkZZwKb2tXx_qm6KvYjSAuzUm6s0"},"jobTitle":["MBA Product Consultant","MBA Product Consultant"],"name":"Rajakulasekhar Ramakrishnan","sameAs":"https://www.linkedin.com/in/rajakulasekharr","url":"https://www.linkedin.com/in/rajakulasekharr","memberOf":[],"worksFor":[{"@type":"Organization","name":"Microsoft","url":"https://www.linkedin.com/company/microsoft?trk=ppro_cprof","location":"New York, New York, United States","member":{"@type":"OrganizationRole","description":"Consulted as Product Manager to integrate ChatGPT to Microsoft News to provide personalized finance newsletters to users based on their proficiency in the subject","startDate":"2023-01"}},{"@type":"Organization","name":"Epicenter NYC","location":"New York, New York, United States","member":{"@type":"OrganizationRole","startDate":"2023-01"}}],"knowsLanguage":[],"interactionStatistic":{"@type":"InteractionCounter","interactionType":"https://schema.org/FollowAction","name":"Follows","userInteractionCount":898},"description":"Rajakulasekhar is a Cornell MBA student (May '23) with a proven track record of delivering products to market as both a Software Engineer (3 years) and Product Owner(1 year) in the IT automation space. He has led a team of 10 to develop, test and maintain a feature that brought in $15M in revenue. \u003Cbr\u003E\u003Cbr\u003EDuring his MBA, Rajakulasekhar honed his skills in Technical Product Management by working as a product management consultant for Microsoft, EpicenterNYC and RethinkFood, allowing him to gain valuable industry experience while specializing in this area of expertise.\u003Cbr\u003E\u003Cbr\u003EHe is actively seeking Product Management roles. Please feel free to Direct Message him on LinkedIn."},{"@type":"WebPage","url":"https://www.linkedin.com/in/rajakulasekharr","reviewedBy":{"@type":"Person","name":"Rajakulasekhar Ramakrishnan"}}]}
+Skip to main content
+Skip to main content
+LinkedIn
+Discover
+People
+Learning
+Jobs
+Join now
+Sign in
+Rajakulasekhar Ramakrishnan
+Product Manager | MBA Student at SC Johnson College of Business at Cornell University | former Software Engineer at Infoblox
+New York, New York, United States
+898 followers
+500+ connections
+Join to view profile
+Microsoft
+Cornell Johnson Graduate School of Management
+Report this profile
+Report
+Report
+Back
+Submit
+About
+Rajakulasekhar is a Cornell MBA student (May '23) with a proven track record of delivering products to market as both a Software Engineer (3 years) and Product Owner(1 year) in the IT automation space. He has led a team of 10 to develop, test and maintain a feature that brought in $15M in revenue.
+During his MBA, Rajakulasekhar honed his skills in Technical Product Management by working as a product management consultant for Microsoft, EpicenterNYC and RethinkFood, allowing him to gain valuable industry experience while specializing in this area of expertise.
+He is actively seeking Product Management roles. Please feel free to Direct Message him on LinkedIn.
+Activity
+For anyone considering a major career change, you’re NOT ‘starting over’ in a new job.
+
+You’re bringing with you all the experiences, personal…
+For anyone considering a major career change, you’re NOT ‘starting over’ in a new job.
+
+You’re bringing with you all the experiences, personal…
+Liked by
+Rajakulasekhar Ramakrishnan
+So GPT4 passes the bar exam in the 90th percentile. This is not because AI is achieving human levels of intelligence. It is because the bar exam…
+So GPT4 passes the bar exam in the 90th percentile. This is not because AI is achieving human levels of intelligence. It is because the bar exam…
+Liked by
+Rajakulasekhar Ramakrishnan
+We are offering a Professional AI Portrait to the first 29,000 people who likes + comments this post + follows Retrato 🚀
+
+Here is an example of the…
+We are offering a Professional AI Portrait to the first 29,000 people who likes + comments this post + follows Retrato 🚀
+
+Here is an example of the…
+Liked by
+Rajakulasekhar Ramakrishnan
+Join now to see all activity
+Experience
+MBA Product Consultant
+Microsoft
+Jan 2023
+- Present
+4 months
+New York, New York, United States
+Consulted as Product Manager to integrate ChatGPT to Microsoft News to provide personalized finance newsletters to users based on their proficiency in the subject
+MBA Product Consultant
+Epicenter NYC
+Jan 2023
+- Present
+4 months
+New York, New York, United States
+MBA product consultant
+Rethink food
+Aug 2022
+-
+Dec 2022
+5 months
+Infoblox
+4 years 4 months
+Product Owner, Outbound project
+Infoblox
+Apr 2021
+-
+Apr 2022
+1 year 1 month
+India
+Software Engineer
+Infoblox
+Aug 2018
+-
+Mar 2021
+2 years 8 months
+Bengaluru Area, India
+Intern
+Infoblox
+Jan 2018
+-
+Jul 2018
+7 months
+Bengaluru Area, India
+Education
+Cornell Johnson Graduate School of Management
+Master of Business Administration - MBA
+2022
+-
+2023
+Cornell Tech
+Master of Business Administration - MBA
+2022
+-
+2023
+Cornell University
+Master of Business Administration - MBA
+Product Management
+2022
+-
+2023
+Activities and Societies: High Tech Club
+PES University
+Bachelor of Technology - BTech
+Electrical, Electronics and Communications Engineering
+8.77
+2014
+-
+2018
+PES University
+-
+More activity by Rajakulasekhar
+About 1000+ applications, I am still in the market after being laid off for 2 months. I had 30+ interviews and made it to 4 final…
+About 1000+ applications, I am still in the market after being laid off for 2 months. I had 30+ interviews and made it to 4 final…
+Liked by
+Rajakulasekhar Ramakrishnan
+Ramadan Kareem from the Infoblox Family to yours. It's been an unforgettable experience visiting the stellar Infoblox META team, valued customers and…
+Ramadan Kareem from the Infoblox Family to yours. It's been an unforgettable experience visiting the stellar Infoblox META team, valued customers and…
+Liked by
+Rajakulasekhar Ramakrishnan
+CORNELL TECH- JOB & INTERNSHIP NETWORKING EVENT- FRIDAY, APRIL 28 
+Meet students from Cornell Tech Master’s programs (MBA, MENG, and MS IS), share…
+CORNELL TECH- JOB & INTERNSHIP NETWORKING EVENT- FRIDAY, APRIL 28 
+Meet students from Cornell Tech Master’s programs (MBA, MENG, and MS IS), share…
+Liked by
+Rajakulasekhar Ramakrishnan
+When job market is really bad!
+When job market is really bad!
+Liked by
+Rajakulasekhar Ramakrishnan
+Thought for today
+Thought for today
+Liked by
+Rajakulasekhar Ramakrishnan
+Surgeon in London performing remote operation on a banana in California using #5G!!
+
+With the advent of 5G (or going forward next generation wireless…
+Surgeon in London performing remote operation on a banana in California using #5G!!
+
+With the advent of 5G (or going forward next generation wireless…
+Liked by
+Rajakulasekhar Ramakrishnan
+💬 I got 30 people to write about my work ethic. Here’s what they have to say, summarised in a word cloud. Why? 👇👇
+
+🔇 Because lately, it seems…
+💬 I got 30 people to write about my work ethic. Here’s what they have to say, summarised in a word cloud. Why? 👇👇
+
+🔇 Because lately, it seems…
+Liked by
+Rajakulasekhar Ramakrishnan
+Yesterday the Women at Infoblox Network #trivandrum, #bangalore, and #apj chapters had the #opportunity to listen, laugh and #share with Carolyn…
+Yesterday the Women at Infoblox Network #trivandrum, #bangalore, and #apj chapters had the #opportunity to listen, laugh and #share with Carolyn…
+Liked by
+Rajakulasekhar Ramakrishnan
+If a Recruiter sends you an InMail, always accept it. Even if you are not interested in the role, company, or connecting with the Recruiter.
+
+LI…
+If a Recruiter sends you an InMail, always accept it. Even if you are not interested in the role, company, or connecting with the Recruiter.
+
+LI…
+Liked by
+Rajakulasekhar Ramakrishnan
+when you upload your resume and it doesn't ask you to manually enter the same info
+when you upload your resume and it doesn't ask you to manually enter the same info
+Liked by
+Rajakulasekhar Ramakrishnan
+For all my Cornell Tech friends out there. #tech  Ansen G. Michael Choie Jung (Jason) Park Kalyan Gautham Anant Agarwal Ross Bhattacharya Calvin…
+For all my Cornell Tech friends out there. #tech  Ansen G. Michael Choie Jung (Jason) Park Kalyan Gautham Anant Agarwal Ross Bhattacharya Calvin…
+Liked by
+Rajakulasekhar Ramakrishnan
+The beauty of this book - open a random page and start reading! It's simple, no new stuff, but full of life experiences, reflections, and awareness!…
+The beauty of this book - open a random page and start reading! It's simple, no new stuff, but full of life experiences, reflections, and awareness!…
+Liked by
+Rajakulasekhar Ramakrishnan
+View Rajakulasekhar’s full profile
+See who you know in common
+Get introduced
+Contact Rajakulasekhar directly
+Join to view full profile
+People also viewed
+Nikhil Pulluri
+Seeking full time positions starting May 2023 | Johnson Cornell MBA(STEM) Candidate 2023 | Ex-F5 | Ex-GEP
+New York City Metropolitan Area
+Simar Arora ☁️
+Passionate about Cloud | MBA at Cornell | Ex-Goldman Sachs
+New York, NY
+Kaustav Karmakar
+An Innovator who helps Customers make sense of & visualize dense Data Findings| MBA Candidate at Cornell Johnson (Class of '23) | Merit Scholar | Ex Project Lead @ Oracle
+New York, NY
+Rahul Rai
+Cornell MBA '23 | Emerging Markets Institute Fellow | xSAP
+New York, NY
+Vrinda Lohia
+Johnson Cornell Tech MBA Candidate || ex-Bain
+New York, NY
+Saurabh Saha
+Cornell MBA ‘23 | Ex-Flipkart (Walmart) | Product | Marketing | Growth
+New York, NY
+Sarang Pramode
+Cornell Tech | Ex-Yulu
+New York, NY
+Ahana Raghuvanshi
+MBA Candidate at Cornell Johnson - Class of 2023 | Experienced in building & scaling data products | Ex - HSBC
+New York, NY
+Rushil Anand
+Johnson Cornell Tech MBA
+New York, NY
+Shreya Mittal
+MBA Candidate’23| Cornell Johnson Graduate School of Management
+Ithaca, NY
+Ravi Niteesh Voleti
+MBA Candidate at Cornell’23 || MBA Merit Scholar || Ex-Manager at Deloitte
+United States
+Pranav Vashist
+MBA Candidate at SC Johnson College of Business, Cornell University
+Ithaca, NY
+Abdullah .
+STEM Student at Cornell SC Johnson College of Business | Ex-Teradata | Ex-S&P | Certified PM | Cloud Data Migration & Management
+New York, NY
+Krupal Pandya
+MBA Candidate at Cornell University - Johnson Graduate School of Management
+New York City Metropolitan Area
+Subhi Singh
+STEM MBA Candidate at Cornell Johnson Graduate School of Management | Cornell Tech| Merit Scholar & Forté Fellow
+New York City Metropolitan Area
+Aparajita Thakker
+Tech MBA Candidate at Cornell University | Merit Scholar & Forté Fellow
+New York, NY
+Simona Pollakova
+Johnson Cornell Tech MBA Candidate | Merit Scholar & Forte Fellow | Ex-PwC
+New York, NY
+Saransh Srivastava
+Cornell MBA । Product Manager | SaaS/PaaS | Platforms & API
+New York, NY
+Deeksha Khatwani
+IIM Lucknow PGP'24 | Ex-Cisco | MNNIT'20
+Lucknow
+Shubham Mittal
+Software Engineer at Google
+Gurugram
+Show more profiles
+Show fewer profiles
+Looking for career advice?
+Visit the Career Advice Hub to see tips on accelerating your career.
+View Career Advice Hub
+Others named
+Rajakulasekhar Ramakrishnan
+Rajakulasekhar Ramakrishnan
+Student at PES University
+Bengaluru
+1 other named Rajakulasekhar Ramakrishnan is on LinkedIn
+See others named
+Rajakulasekhar Ramakrishnan
+Add new skills with these courses
+Product Management First Steps
+Chief Technology Officer Career Guide
+Product Management Tips
+See all courses
+Rajakulasekhar’s public profile badge
+Include this LinkedIn profile on other websites
+Rajakulasekhar Ramakrishnan
+Product Manager | MBA Student at SC Johnson College of Business at Cornell University | former Software Engineer at Infoblox
+MBA Product Consultant at Microsoft
+Cornell Johnson Graduate School of Management
+View profile
+View profile badges
+LinkedIn
+© 2023
+About
+Accessibility
+User Agreement
+Privacy Policy
+Your California Privacy Choices
+Cookie Policy
+Copyright Policy
+Brand Policy
+Guest Controls
+Community Guidelines
+العربية (Arabic)
+Čeština (Czech)
+Dansk (Danish)
+Deutsch (German)
+English (English)
+Español (Spanish)
+Français (French)
+हिंदी (Hindi)
+Bahasa Indonesia (Indonesian)
+Italiano (Italian)
+日本語 (Japanese)
+한국어 (Korean)
+Bahasa Malaysia (Malay)
+Nederlands (Dutch)
+Norsk (Norwegian)
+Polski (Polish)
+Português (Portuguese)
+Română (Romanian)
+Русский (Russian)
+Svenska (Swedish)
+ภาษาไทย (Thai)
+Tagalog (Tagalog)
+Türkçe (Turkish)
+Українська (Ukrainian)
+简体中文 (Chinese (Simplified))
+正體中文 (Chinese (Traditional))
+Language
+<img class="bc " style="display:none;" width="1" height="1" src="https://ponf.linkedin.com/pixel/tracking.png?reqid=tid-AAX4m1iLaT50A5xhxjgjCA==&amp;pageInstance=urn:li:page:public_profile_v3;uNfUOQ2XSzmEA+ktCNsM7A==&amp;js=disabled">
+_linkedin_partner_id = "3252572"; window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+(function(l) { if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])}; window.lintrk.q=[]} var s =
+      document.getElementsByTagName("script")[0]; var b = document.createElement("script"); b.type =
+      "text/javascript";b.async = true; b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+      s.parentNode.insertBefore(b, s);})(window.lintrk);
+<img height="1" width="1" style="display:none;" alt src="https://px.ads.linkedin.com/collect/?pid=3252572&amp;fmt=gif">
+Sign in to view Rajakulasekhar’s full profile
+Sign in
+Welcome back
+Email or phone
+Password
+Show
+Forgot password?
+Sign in
+or
+New to LinkedIn?
+Join now
+or
+New to LinkedIn?
+Join now
