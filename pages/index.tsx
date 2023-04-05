@@ -1,118 +1,101 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { ChangeEvent, FormEvent, useState, useEffect, useRef } from 'react';
+import Head from "next/head";
+import Link from "next/link";
+import styles from "@/styles/Home.module.css";
+import Papa from "papaparse";
 
-interface Message {
-  role: 'user' | 'assistant' | 'system';
-  content: string;
-}
+type TargetType = "profile" | "job_post" | "";
 
-const App: React.FC = () => {
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [inputValue, setInputValue] = useState<string>('');
-  const [loading, setLoading] = useState<boolean>(false);
-  const messagesEndRef = useRef<HTMLDivElement | null>(null);
+export default function Home() {
+  const [selectedOption, setSelectedOption] = useState<TargetType>("");
+  const [userProfile, setUserProfile] = useState<string>("");
+  const [jobType, setJobType] = useState<string>("");
+  const [location, setJobLocation] = useState<string>("");
 
-  const handleSendMessage = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (!inputValue) return;
+  const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setSelectedOption(e.currentTarget.value as TargetType);
+  };
 
-    const newMessage: Message = { role: 'user', content: inputValue };
-    setMessages((prevMessages) => [...prevMessages, newMessage]);
-    setInputValue('');
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
 
-    setLoading(true);
-
-    let updatedMessages = [...messages, newMessage];
-
-    const streamingOptions = {
-      temperature: 1,
-      maxTokens: 1000,
-      onStreamResult: (result?: { message: Message }, error?: Error) => {
-        if (error) {
-          console.error(error);
-          setLoading(false);
-        } else if (result) {
-          setLoading(false);
-
-          const lastMessage = updatedMessages[updatedMessages.length - 1];
-          if (lastMessage.role === 'user') {
-            setLoading(false);
-            updatedMessages = [
-              ...updatedMessages,
-              {
-                role: 'assistant',
-                content: result.message.content,
-              },
-            ];
-          } else {
-            updatedMessages = updatedMessages.map((message, index) => {
-              if (index === updatedMessages.length - 1) {
-                return {
-                  ...message,
-                  content: message.content + result.message.content,
-                };
-              }
-              return message;
-            });
-          }
-
-          setMessages(updatedMessages);
-        }
-      },
-    };
-
-    if ((window as any)?.ai) {
-      try {
-        await (window as any).ai.getCompletion(
-          { messages: [{ role: 'system', content: 'You are a helpful assistant.' }, ...messages, newMessage] },
-          streamingOptions
-        );
-      } catch (e) {
-        setLoading(false);
-        console.error(e);
-      }
+    if (jobType.length < 1 || location.length < 1) {
+      return;
     }
-  };
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+    const jobData = await fetchJobData(jobType, location);
+    // downloadCSV(jobData, location);
 
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
+    resetForm();
+  }
+
+  async function fetchJobData(jobType: string, location: string) {
+    const response = await fetch(`http://localhost:3000/api/scrape`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ search: jobType, location }),
+    });
+
+    return await response.json();
+  }
+
+  function resetForm() {
+    setJobType("");
+    setJobLocation("");
+  }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="w-full sm:w-3/4 lg:w-1/2 xl:w-1/2 bg-white shadow-lg rounded-lg p-6">
-        <h1 className="text-3xl font-bold mb-4">Next JS x window.ai</h1>
-        <div className="overflow-y-auto h-96 mb-4">
-          {messages.map((message, index) => (
-            <div key={index} className={`mb-2 ${message.role === 'user' ? 'text-right' : ''}`}>
-              <span className={`inline-block p-2 rounded-lg text-left ${message.role === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-black'}`}>
-                {message.content}
-              </span>
-            </div>
-          ))}
-          <div ref={messagesEndRef}></div>
-        </div>
-        <form onSubmit={handleSendMessage} className="flex">
-          <input
-            type="text"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            className="flex-grow border border-gray-300 rounded-lg p-2 text-sm focus:outline-none focus:border-blue-500"
-          />
-          <button
-            type="submit"
-            disabled={loading}
-            className={`ml-2 bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold ${loading ? 'opacity-50' : ''}`}
-          >
-            {loading ? 'Sending...' : 'Send'}
+    <div className={styles.container}>
+      <Head>
+        <title>LinkedIn on Autopilot</title>
+        <meta name="description" content="LinkedIn on Autopilot App" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <main className={`${styles.main} ${styles.flex} ${styles.flexCol} ${styles.itemsCenter} ${styles.justifyCenter} ${styles.minHScreen} ${styles.py2}`}>
+        <h1 className={`${styles.text4xl} ${styles.fontBold} ${styles.mb4}`}>
+          Welcome to LinkedIn on Autopilot
+        </h1>
+        <p className={`${styles.textXl} ${styles.mb8} ${styles.textGray700}`}>
+          This app helps you scrape linkedin Data in a JSON format based on your search criteria.
+        </p>
+        <h1 className={styles.text4xl}>LinkedIn Scraper</h1>
+        <form onSubmit={handleSubmit} className={styles.spaceY4}>
+          <label className="">
+            <span className="">Target Type </span>
+            <select
+              id="select_field"
+              value={selectedOption}
+              onChange={handleSelectChange}
+              className=""
+            >
+              <option value="">-- Select --</option>
+              <option value="profile">Profile</option>
+              <option value="job_post">Job Post</option>
+            </select>
+          </label>
+
+          {selectedOption === "profile" && (
+            <InputField label="User URL:" value={userProfile} onChange={(e) => setUserProfile(e.target.value)} />
+          )}
+
+          {selectedOption === "job_post" && (
+            <>
+              <InputField label="Job Search" value={jobType} onChange={(e) => setJobType(e.target.value)} />
+              <InputField label="Location Search" value={location} onChange={(e) => setJobLocation(e.target.value)} />
+            </>
+          )}
+
+          <SubmitButton />
+        <Link href="/chat" passHref>
+          <button className={`${styles.textWhite} ${styles.fontBold} ${styles.py2} ${styles.px4} ${styles.btnLarger} ${styles.gradientBackground} ${styles.rounded} `}>
+            Start
           </button>
+        </Link>
         </form>
-      </div>
+      </main>
     </div>
   );
-};
-
-export default App;
+}

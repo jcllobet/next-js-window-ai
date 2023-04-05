@@ -53,7 +53,6 @@ npm run dev
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YanniKouloumbis/next-js-window-ai)
 
-
 ## Customization
 
 You can customize the app by modifying the `pages/index.js` file. Here are some ideas for customization:
@@ -74,3 +73,7 @@ This project is licensed under the MIT License. Use it for anything!
 
 - The `window.ai` library for providing the AI assistant functionality.
 - The Next.js framework for simplifying the development of React applications.
+
+# Documentation OpenAI
+
+https://platform.openai.com/docs/introduction
