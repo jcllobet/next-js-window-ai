@@ -38,12 +38,16 @@ export default function Home() {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    console.log("hello")
 
-    // if (jobDescription.length < 1 || userProfile.length < 1) {
-    //   return;
-    // }
+    if (jobURL.length < 1 || userURL.length < 1) {
+      console.log("bruh");
+      return;
+    }
     try {
+      console.log('inside the try attempt');
       console.log(userURL);
+      console.log(`Type of URL: ${typeof userURL}`)
       const fetchedUserProfile = await fetchPageData(userURL);
       const fetchedJobDescription = await fetchPageData(jobURL);
       setUserProfile(fetchedUserProfile);
@@ -82,7 +86,7 @@ export default function Home() {
   }
 
   async function fetchPageData(url: string) {
-    const response = await fetch(`http://localhost:3000/api/scrape`, {
+    const response = await fetch(`http://localhost:3000/api/scraper`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
