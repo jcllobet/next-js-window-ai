@@ -4,16 +4,16 @@ import StealthPlugin from 'puppeteer-extra-plugin-stealth';
 puppeteer.use(StealthPlugin());
 
 export async function getAllVisibleText(url: string): Promise<string> {
-  console.log('Starting getAllVisibleText with URL:', url);
+  //console.log('Starting getAllVisibleText with URL:', url);
 
   const browser = await puppeteer.launch({ headless: true });
-  console.log('Browser launched.');
+  //console.log('Browser launched.');
 
   const page = await browser.newPage();
-  console.log('New page created.');
+  //console.log('New page created.');
 
   await page.goto(url, { waitUntil: 'networkidle2' });
-  console.log('Page navigated to URL.');
+  //console.log('Page navigated to URL.');
 
   const visibleText = await page.evaluate(() => {
     const node = document.querySelector('body');
@@ -33,10 +33,10 @@ export async function getAllVisibleText(url: string): Promise<string> {
   });
 
   console.log('Visible text extracted:');
-  console.log(visibleText);
+  //console.log(visibleText);
 
   await browser.close();
-  console.log('Browser closed.');
+  //console.log('Browser closed.');
 
   return visibleText;
 }

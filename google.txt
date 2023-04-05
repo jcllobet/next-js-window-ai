@@ -1,0 +1,118 @@
+<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMKRT58" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+<p class="gc-noscript-message">
+        JavaScript must be enabled in order for you to use Google Careers. However, it seems JavaScript is either disabled or not supported by your browser. To view the site, please enable JavaScript by changing your browser options, then <a href="https://careers.google.com/">try again</a>.
+      </p>
+Careers
+Skip to content
+Teams
+Locations
+Benefits
+Jobs
+Students
+Sign in
+Jobs
+Careers
+Teams
+Locations
+Benefits
+Jobs
+Students
+Edit filters
+No results. Search again or try removing filters.
+2023-03-20T13:30:17.102Z
+Share
+Save
+Software Engineering Intern 2023
+Google
+In-office:
+Belo Horizonte,
+State of Minas Gerais,
+Brazil
+Remote eligible
+Apply
+Please submit your resume in English - we can only consider applications submitted in this language.
+Please complete your application before April 6th, 2023.
+Note: Google’s hybrid workplace includes remote and in-office roles. By applying to this position you will have an opportunity to share your preferred working location from the following:
+In-office locations: Belo Horizonte, State of Minas Gerais, Brazil.
+Remote location(s): Brazil.
+Qualifications
+Minimum qualifications:
+Due to local compliance requirements, applicants must be currently pursuing a Bachelor's, Masters or PhD degree in Computer Science or related technical field at a Brazilian university, expected to graduate in
+December 2023
+.
+Experience writing code fixes and programming in one or more of the following languages: C, C++, Java, JavaScript, or Python.
+Preferred qualifications:
+Available to start an internship in August 2023 for 30h/week for Bachelor’s and 40h/week for Masters and PhD. The internship ends after 3 months.
+Experience in tech internships or working in computer science, with competencies in data structures, algorithms, and software design (e.g., research assistant, teaching assistant, personal projects, etc.).
+Ability to manipulate code to improve system availability and latency and optimize code for stability, functionality and scalability for a segment of Google's infrastructure, service area, or within a technology domain (e.g., crawling, search, troubleshooting).
+About the job
+Internship starts in August 2023. This is a 14 week internship.
+This program will give you an opportunity to work on computer science solutions, develop scalable, distributed software systems, and collaborate on multitudes of smaller projects that have universal appeal, requiring research, awareness, interactivity, and asking questions.
+We focus on being a collaborative, global organization consisting of engineers who are ready to take on challenges and make an impact on users. As a Software Engineering Intern, you will work on our core products and services and those who support critical functions of our engineering operations.
+Whether it's finding innovative ways to advance search quality or continuing to refine and scale complex auction systems, you will help develop solutions to some of the most interesting technical problems out there. You will be guided to research, conceive, and develop software applications to extend and improve on Google's product offerings and collaborate on scalability issues involving a large amount of data and information.
+Google is an engineering company at heart. We hire people with a broad set of technical skills who are ready to take on some of technology's greatest challenges and make an impact on users around the world. At Google, engineers not only revolutionize search, they routinely work on scalability and storage solutions, large-scale applications and entirely new platforms for developers around the world. From Google Ads to Chrome, Android to YouTube, social to local, Google engineers are changing the world one technological achievement after another.
+Responsibilities
+Apply knowledge gained in computer science courses to real-world problems.
+Analyze information and evaluate results to choose the best solution to effectively solve problems.
+Develop scripts to automate routine tasks.
+Create and support a productive and innovative team, including working with peers, managers, and teams.
+Information collected and processed as part of your Google Careers profile, and any job applications you choose to submit is subject to Google's
+Applicant and Candidate Privacy Policy
+.
+Google is proud to be an equal opportunity workplace and is an affirmative action employer. We are committed to equal employment opportunity regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity or Veteran status. We also consider qualified applicants regardless of criminal histories, consistent with legal requirements. See also
+Google's EEO Policy
+and
+Know your rights: workplace discrimination is illegal
+. If you have a need that requires accommodation, please let us know by completing our
+Accommodations for Applicants form
+.
+To all recruitment agencies: Google does not accept agency resumes. Please do not forward resumes to our jobs alias, Google employees or any other organization location. Google is not responsible for any fees related to unsolicited resumes.
+To learn more about COVID vaccination requirements for US Google workplaces, read our
+Vaccination Entry Policy
+.
+At Google, we’re committed to building a workforce that is more representative of the users we serve and creating a culture where everyone feels like they belong. To learn more about our diversity, equity, inclusion commitments and how we’re building belonging, please visit our
+Belonging page
+for more information.
+We welcome and encourage people who are expecting and/or parents-to-be to apply to this or any other role at Google.
+Google is a global company and, in order to facilitate efficient collaboration and communication globally, English proficiency is a requirement for all roles.
+Share
+Save
+Privacy
+Applicant and Candidate Privacy
+Terms
+This site uses cookies from Google to deliver its services and analyze traffic.
+Learn more
+OK
+(function() {
+        var defaultLocale = 'en_US';
+        var locale = 'en_US';
+
+        if (locale !== defaultLocale) {
+          window.LOCALE = locale;
+        }
+      }());
+/* <![CDATA[ */
+      var google_conversion_id = 1005405344;
+      var google_custom_params = window.google_tag_params;
+      var google_remarketing_only = true;
+      /* ]]> */
+<div style="display: none;">
+        <img height="1" width="1" style="border-style: none;" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1005405344/?value=0&amp;guid=ON&amp;script=0"/>
+      </div>
+/* <![CDATA[ */
+      var google_conversion_id = 1068503412;
+      var google_custom_params = window.google_tag_params;
+      var google_remarketing_only = true;
+      /* ]]> */
+<div style="display: none;">
+        <img height="1" width="1" style="border-style: none;" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1068503412/?value=0&amp;guid=ON&amp;script=0"/>
+      </div>
+/* <![CDATA[ */
+      var google_conversion_id = 1068503412;
+      var google_conversion_label = "q3SuCMzdxwIQ9KLA_QM";
+      var google_custom_params = window.google_tag_params;
+      var google_remarketing_only = true;
+      /* ]]> */
+<div style="display: none;">
+        <img height="1" width="1" style="border-style: none;" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1068503412/?value=1.00&amp;currency_code=USD&amp;label=q3SuCMzdxwIQ9KLA_QM&amp;guid=ON&amp;script=0"/>
+      </div>
