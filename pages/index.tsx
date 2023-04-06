@@ -1,7 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState, useEffect, useRef, useContext } from 'react';
 import Head from "next/head";
-import Link from "next/link";
-import styles from "@/styles/Home.module.css";
+import styles from "../styles/Home.module.css";
 // import Papa from "papaparse";
 import { useRouter } from 'next/router';
 import SharedContext from './SharedContext';
@@ -48,12 +47,6 @@ export default function Home() {
     console.log('userURL:', userURL);
     console.log('jobURL:', jobURL);
   }, [userURL, jobURL]);
-
-  useEffect(() => {
-    if (!(window as any).ai) {
-      console.warn("AI not available in window");
-    }
-  }, []);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();

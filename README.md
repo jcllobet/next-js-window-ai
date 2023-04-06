@@ -83,3 +83,46 @@ https://windowai.io/
 https://github.com/NolanGC/oregon-trail-window-ai
 
 https://careers.google.com/jobs/results/82975161105425094/
+
+# TODO: Add window.ai as effect again
+
+// Log state variables when they change
+useEffect(() => {
+console.log('userURL:', userURL);
+console.log('jobURL:', jobURL);
+}, [userURL, jobURL]);
+
+// useEffect(() => {
+// if (!(window as any).ai) {
+// console.warn("AI not available in window");
+// }
+// }, []);
+
+      try {
+      console.log('inside the try attempt');
+      console.log(userURL);
+      console.log(`Type of URL: ${typeof userURL}`)
+      const fetchedUserProfile = await fetchPageData(userURL);
+      const fetchedJobDescription = await fetchPageData(jobURL);
+      setUserProfile(fetchedUserProfile);
+      setJobDescription(fetchedJobDescription);
+
+      // downloadCSV(jobData, location);
+
+      //if ((window as any)?.ai) {
+      //  try {
+      //    console.log("OK")
+      //    const userResponse = await (window as any).ai.getCompletion(
+      //      { messages: [{ role: 'system', content: `insert prompt for user info summary ${userProfile}` }, ...messages, newMessage] },
+      //      streamingOptions
+      //    );
+      //    console.log(userResponse.message.content);
+      //    setProcessedUserProfile(userResponse.message.content);
+          // const jobResponse = await (window as any).ai.getCompletion(
+          //   { messages: [{ role: 'system', content: `insert prompt for job info summary ${jobDescription}` }] }
+          // );
+          // console.log(jobResponse.message.content);
+          // setProcessedUserProfile(jobResponse.message.content);
+      //  } catch (e) {
+      //    console.error(e);
+      //  }
