@@ -158,21 +158,25 @@ export default function Home() {
         <h1 className={styles.text4xl}>Negotiate GPT 💼</h1>
 
         <form onSubmit={handleSubmit} className="">
-            <label className="block">
-              <span className="text-gray-700">Your linkedin URL: </span>
+            <label htmlFor='linkedinUrl' className="block">
+              <span className="text-gray-700">Your linkedin Url: </span>
               <input
+                id = 'linkedinUrl'
                 value={userURL}
                 onChange={(e) => setUserURL(e.target.value)}
                 type="text"
+                placeholder='Linkedin Url'
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
               />
             </label>
-            <label className="block">
-              <span className="text-gray-700">Job description URL: </span>
+            <label htmlFor='jobDescriptionUrl' className="block">
+              <span className="text-gray-700">Job description Url: </span>
               <input
+                id = 'jobDescriptionUrl'
                 value={jobURL}
                 onChange={(e) => setJobURL(e.target.value)}
                 type="text"
+                placeholder='Job description Url'
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
               />
             </label>

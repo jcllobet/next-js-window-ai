@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Home from "@/pages/index";
 import SharedContextProvider from "@/pages/SharedContextProvider";
@@ -24,7 +24,7 @@ describe('next-router-mock', () => {
     
     // Render the component:
     render(<ExampleComponent href="/foo?bar=baz" />);
-    expect(screen.getByRole('button')).toHaveText(
+    expect(screen.getByRole('button')).toHaveTextContent(
       'The current route is: "/initial-path"'
     );
 
@@ -60,23 +60,29 @@ describe("Home", () => {
     expect(screen.getByLabelText(/Job description URL:/i)).toBeInTheDocument();
     expect(screen.getByText(/Start/i)).toBeInTheDocument();
   });
-
-  it("updates the input fields when user types", () => {
+  it("updates the input fields when user types", async () => {
     render(
       <SharedContextProvider>
         <Home />
       </SharedContextProvider>
     );
-    const linkedinInput = screen.getByLabelText(/Your linkedin URL:/i);
-    const jobDescriptionInput = screen.getByLabelText(/Job description URL:/i);
-
-    userEvent.type(linkedinInput, "https://linkedin.com/in/example");
-    userEvent.type(jobDescriptionInput, "https://example.com/job-description");
-
-    expect(linkedinInput).toHaveValue("https://linkedin.com/in/example");
-    expect(jobDescriptionInput).toHaveValue(
-      "https://example.com/job-description"
-    );
+    const linkedinInput = screen.getByPlaceholderText("Linkedin Url");
+    const jobDescriptionInput = screen.getByPlaceholderText("Job description Url");
+  
+    fireEvent.change(linkedinInput, {
+      target: { value: "https://linkedin.com/in/example" },
+    });
+    fireEvent.change(jobDescriptionInput, {
+      target: { value: "https://example.com/job-description" },
+    });
+    
+  
+    await waitFor(() => {
+      expect(linkedinInput).toHaveValue("https://linkedin.com/in/example");
+      expect(jobDescriptionInput).toHaveValue(
+        "https://example.com/job-description"
+      );
+    });
   });
 
   // Additional tests for form submission, fetching data, and routing can be added here.
