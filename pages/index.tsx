@@ -62,7 +62,7 @@ export default function Home() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ userInput: input }),
+      body: JSON.stringify({ messages: [{ role: 'user', content: input }] }),
     });
   
     const data = await response.json();
@@ -113,6 +113,7 @@ export default function Home() {
 
       // Set the initial message as the sum of the user's profile and the job description
       const initialMessage: Message = { role: 'user', content: `${processedUserProfile} ${processedJobDescription}` };
+      setMessages([...messages, initialMessage]);
       resetForm();
     } catch {
       return;
