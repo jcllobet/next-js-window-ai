@@ -1,44 +1,9 @@
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import Home from "@/pages/index";
-import SharedContextProvider from "@/pages/SharedContextProvider";
-import { useRouter } from 'next/router';
-import mockRouter from 'next-router-mock';
+import SharedContextProvider from "@/contexts/SharedContextProvider";
 
 jest.mock('next/router', () => require('next-router-mock'));
-
-const ExampleComponent = ({ href = '' }) => {
-  const router = useRouter();
-  return (
-    <button onClick={() => router.push(href)}>
-      The current route is: "{router.asPath}"
-    </button>
-  );
-}
-
-describe('next-router-mock', () => {
-  it('mocks the useRouter hook', () => {
-    // Set the initial url:
-    mockRouter.push("/initial-path");
-    
-    // Render the component:
-    render(<ExampleComponent href="/foo?bar=baz" />);
-    expect(screen.getByRole('button')).toHaveTextContent(
-      'The current route is: "/initial-path"'
-    );
-
-    // Click the button:
-    fireEvent.click(screen.getByRole('button'));
-    
-    // Ensure the router was updated:
-    expect(mockRouter).toMatchObject({ 
-      asPath: "/foo?bar=baz",
-      pathname: "/foo",
-      query: { bar: "baz" },
-    });
-  });
-});
 
 describe("Home", () => {
   it("renders the homepage with the title", () => {
@@ -47,7 +12,7 @@ describe("Home", () => {
         <Home />
       </SharedContextProvider>
     );
-    expect(screen.getByText(/Negotiate GPT 💼/i)).toBeInTheDocument();
+    expect(screen.getByText("Negotiate GPT 💼")).toBeInTheDocument();
   });
 
   it("renders the form with input fields and submit button", () => {
@@ -60,14 +25,15 @@ describe("Home", () => {
     expect(screen.getByLabelText(/Job description URL:/i)).toBeInTheDocument();
     expect(screen.getByText(/Start/i)).toBeInTheDocument();
   });
+
   it("updates the input fields when user types", async () => {
     render(
       <SharedContextProvider>
         <Home />
       </SharedContextProvider>
     );
-    const linkedinInput = screen.getByPlaceholderText("Linkedin Url");
-    const jobDescriptionInput = screen.getByPlaceholderText("Job description Url");
+    const linkedinInput = screen.getByPlaceholderText("https://www.linkedin.com/in/reidhoffman/");
+    const jobDescriptionInput = screen.getByPlaceholderText("https://openai.com/careers/workplace-ops-openai-hq-events");
   
     fireEvent.change(linkedinInput, {
       target: { value: "https://linkedin.com/in/example" },
@@ -84,6 +50,4 @@ describe("Home", () => {
       );
     });
   });
-
-  // Additional tests for form submission, fetching data, and routing can be added here.
 });
