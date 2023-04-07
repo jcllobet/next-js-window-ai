@@ -84,7 +84,8 @@ describe("Form submission", () => {
       push: jest.fn(),
     };
   
-    customRender(
+    // Render the component with the custom router context
+    const { getByPlaceholderText } = customRender(
       <SharedContextProvider>
         <Home />
       </SharedContextProvider>,
@@ -102,13 +103,15 @@ describe("Form submission", () => {
       body: { output: "generated-text" },
     });
   
-    // Render the component and simulate user input and form submission
-    render(
-      <SharedContextProvider>
-        <Home />
-      </SharedContextProvider>
-    );
-    // ...
+    // Get the elements and simulate user input
+    const linkedinInput = getByPlaceholderText("https://www.linkedin.com/in/reidhoffman/");
+    const jobDescriptionInput = getByPlaceholderText("https://openai.com/careers/workplace-ops-openai-hq-events");
+    fireEvent.change(linkedinInput, { target: { value: "https://linkedin.com/in/example" } });
+    fireEvent.change(jobDescriptionInput, { target: { value: "https://example.com/job-description" } });
+
+    // Simulate form submission
+    const form = screen.getByTestId("form");
+    fireEvent.submit(form);
   
     // Spy on router.push to check if the user is redirected to the /chat page
     await waitFor(() => {
@@ -131,16 +134,24 @@ describe("Form submission", () => {
     });
   
     // Render the component and simulate user input and form submission
-    render(
+    const { getByPlaceholderText } = render(
       <SharedContextProvider>
         <Home />
       </SharedContextProvider>
     );
-    // ...
-  
-    await waitFor(() => {
-      expect(screen.getByText(/Error:/i)).toBeInTheDocument();
-      expect(screen.getByText("Request failed with status 400")).toBeInTheDocument();
-    });
-  }); // p(true) = 1
+
+    // Get the elements and simulate user input
+    const linkedinInput = getByPlaceholderText("https://www.linkedin.com/in/reidhoffman/");
+    const jobDescriptionInput = getByPlaceholderText("https://openai.com/careers/workplace-ops-openai-hq-events");
+    fireEvent.change(linkedinInput, { target: { value: "https://linkedin.com/in/example" } });
+    fireEvent.change(jobDescriptionInput, { target: { value: "https://example.com/job-description" } });
+
+    // Simulate form submission
+    const form = screen.getByTestId("form");
+    fireEvent.submit(form);
+
+    // Use findByText to search for the error message
+    const errorElement = await screen.findByText("Bad Request");
+    expect(errorElement).toBeInTheDocument();
+  });
 });

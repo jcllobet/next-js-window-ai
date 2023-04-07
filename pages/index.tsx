@@ -21,6 +21,7 @@ import { Message } from '../types/index';
 
 export default function Home() {
   const sharedState = useContext(SharedContext);
+  const [error, setError] = useState<string | null>(null);
   const { fetchPageData } = usePageData();
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState<string>('');
@@ -49,7 +50,7 @@ export default function Home() {
   async function fetchUrl(givenUrl: string) {
     try {
       const response = await fetchPageData(givenUrl);
-      return response;
+      return response;s
     } catch (error) {
       console.log(error);
     }
@@ -63,14 +64,19 @@ export default function Home() {
       },
       body: JSON.stringify({ userInput: input }),
     });
-
+  
     const data = await response.json();
     if (response.status !== 200) {
-      throw data.error || new Error(`Request failed with status ${response.status}`);
+      const errorMessage = data.error || `Error: Request failed with status ${response.status}`;
+      setError(errorMessage);
+      throw new Error(errorMessage);
+    } else {
+      setError(null);
     }
-
+  
     return data.output.text;
   }
+  
 
   function resetForm() {
     setUserUrl('');
@@ -124,7 +130,11 @@ export default function Home() {
       </Head>
       <main className={`${styles.main} ${styles.flex} ${styles.flexCol} ${styles.itemsCenter} ${styles.justifyCenter} ${styles.minHScreen} ${styles.py2}`}>
         <h1 className={styles.text4xl}>Negotiate GPT 💼</h1>
-
+        {error && (
+          <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mt-5" role="alert">
+            <p>{error}</p>
+          </div>
+        )}
         <Form
           userUrl={userUrl}
           jobUrl={jobUrl}
@@ -132,6 +142,7 @@ export default function Home() {
           setJobUrl={setJobUrl}
           handleSubmit={handleSubmit}
         />
+
       </main>
     </div>
   );
