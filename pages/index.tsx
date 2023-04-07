@@ -21,11 +21,7 @@ import { Message } from '../types/index';
 
 export default function Home() {
   const sharedState = useContext(SharedContext);
-  const router = useRouter();
-
   const { fetchPageData } = usePageData();
-
-
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
@@ -36,10 +32,10 @@ export default function Home() {
   }
 
   const {
-    userURL,
-    setUserURL,
-    jobURL,
-    setJobURL,
+    userUrl,
+    setUserUrl,
+    jobUrl,
+    setJobUrl,
     userProfile,
     setUserProfile,
     jobDescription,
@@ -50,32 +46,12 @@ export default function Home() {
     setProcessedJobDescription,
   } = sharedState;
   
-  async function processURLs(userURL: string, jobURL: string) {
-    const fetchedUserProfile = await fetchPageData(userURL);
-    const fetchedJobDescription = await fetchPageData(jobURL);
-  
-    setUserProfile(fetchedUserProfile);
-    setJobDescription(fetchedJobDescription);
-  
-    const userProfileSummary = await generateSummary(`Summarize the following LinkedIn profile: \n ${fetchedUserProfile}`);
-    setProcessedUserProfile(userProfileSummary);
-    const jobDescriptionSummary = await generateSummary(`Summarize the following job description: \n ${fetchedJobDescription}`);
-    setProcessedJobDescription(jobDescriptionSummary);
-  }
-  
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-  
-    if (jobURL.length < 1 || userURL.length < 1) {
-      console.log('Both URLs are required');
-      return;
-    }
-  
+  async function fetchUrl(givenUrl: string) {
     try {
-      await processURLs(userURL, jobURL);
-      resetForm();
-    } catch {
-      return;
+      const response = await fetchPageData(givenUrl);
+      return response;
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -97,9 +73,46 @@ export default function Home() {
   }
 
   function resetForm() {
-    setUserURL('');
-    setJobURL('');
+    setUserUrl('');
+    setJobUrl('');
   }
+  
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    console.log(jobUrl)
+    if (jobUrl.length < 1 || userUrl.length < 1) {
+      console.log('Both URLs are required');
+      return;
+    }
+  
+    try {
+      // Temporarly storing the fetched data to ensure that generate awaits the fetch
+      const fetchedUserProfile = await fetchUrl(userUrl);
+      console.log(`userProfile: ${fetchedUserProfile}`);
+
+      const fetchedJobDescription = await fetchUrl(jobUrl);
+      console.log(`jobDescription: ${fetchedJobDescription}`);
+
+      const userProfileSummary = await generateSummary(`Summarize the following LinkedIn profile: \n ${fetchedUserProfile}`);
+      console.log(`userProfileSummary: ${userProfileSummary}`);
+
+      const jobDescriptionSummary = await generateSummary(`Summarize the following job description: \n ${fetchedJobDescription}`);
+      console.log(`jobDescriptionSummary: ${jobDescriptionSummary}`);
+
+      // Update the state variables
+      setUserProfile(fetchedUserProfile);
+      setJobDescription(fetchedJobDescription);
+      setProcessedUserProfile(userProfileSummary);
+      setProcessedJobDescription(jobDescriptionSummary);
+
+      // Set the initial message as the sum of the user's profile and the job description
+      const initialMessage: Message = { role: 'user', content: `${processedUserProfile} ${processedJobDescription}` };
+      resetForm();
+    } catch {
+      return;
+    }
+  }
+
 
   return (
     <div className={styles.container}>
@@ -113,10 +126,10 @@ export default function Home() {
         <h1 className={styles.text4xl}>Negotiate GPT 💼</h1>
 
         <Form
-          userURL={userURL}
-          jobURL={jobURL}
-          setUserURL={setUserURL}
-          setJobURL={setJobURL}
+          userUrl={userUrl}
+          jobUrl={jobUrl}
+          setUserUrl={setUserUrl}
+          setJobUrl={setJobUrl}
           handleSubmit={handleSubmit}
         />
       </main>

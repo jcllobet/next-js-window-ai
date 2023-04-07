@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 
 export const usePageData = () => {
-  const [pageData, setPageData] = useState<any>(null);
+  const [pageData, setPageData] = useState<string>("");
 
   const fetchPageData = useCallback(async (url: string) => {
     const response = await fetch(`http://localhost:3000/api/scraper`, {
@@ -14,6 +14,7 @@ export const usePageData = () => {
 
     const data = await response.json();
     setPageData(data);
+    return data;
   }, []);
 
   return { pageData, fetchPageData };

@@ -2,10 +2,10 @@
 import { createContext } from 'react';
 
 export interface SharedState {
-  userURL: string;
-  setUserURL: (value: string) => void;
-  jobURL: string;
-  setJobURL: (value: string) => void;
+  userUrl: string;
+  setUserUrl: (value: string) => void;
+  jobUrl: string;
+  setJobUrl: (value: string) => void;
   userProfile: string;
   setUserProfile: (value: string) => void;
   jobDescription: string;

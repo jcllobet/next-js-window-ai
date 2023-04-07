@@ -3,29 +3,29 @@ import InputField from './InputField';
 import SubmitButton from './SubmitButton';
 
 interface FormProps {
-  userURL: string;
-  jobURL: string;
-  setUserURL: (value: string) => void;
-  setJobURL: (value: string) => void;
+  userUrl: string;
+  jobUrl: string;
+  setUserUrl: (value: string) => void;
+  setJobUrl: (value: string) => void;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
-const Form: React.FC<FormProps> = ({ userURL, jobURL, setUserURL, setJobURL, handleSubmit }) => {
+const Form: React.FC<FormProps> = ({ userUrl, jobUrl, setUserUrl, setJobUrl, handleSubmit }) => {
   return (
     <form onSubmit={handleSubmit} className="">
       <InputField
         id="linkedinUrl"
-        label="Your LinkedIn URL"
-        value={userURL}
+        label="https://www.linkedin.com/in/reidhoffman/" //TODO: "Your LinkedIn Url"
+        value= {userUrl}
         placeholder="https://www.linkedin.com/in/reidhoffman/"
-        onChange={(e) => setUserURL(e.target.value)}
+        onChange={(e) => setUserUrl(e.target.value)}
       />
       <InputField
         id="jobDescriptionUrl"
-        label="Job description URL"
-        value={jobURL}
+        label="https://openai.com/careers/workplace-ops-openai-hq-events" //TODO: "Job description Url"
+        value= {jobUrl}
         placeholder="https://openai.com/careers/workplace-ops-openai-hq-events"
-        onChange={(e) => setJobURL(e.target.value)}
+        onChange={(e) => setJobUrl(e.target.value)}
       />
       <SubmitButton type="submit" text = "Start" />
     </form>

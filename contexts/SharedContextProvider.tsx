@@ -8,18 +8,18 @@ interface SharedContextProviderProps {
 }
 
 const SharedContextProvider: React.FC<SharedContextProviderProps> = ({ children }) => {
-  const [userURL, setUserURL] = useState('');
-  const [jobURL, setJobURL] = useState('');
+  const [userUrl, setUserUrl] = useState('');
+  const [jobUrl, setJobUrl] = useState('');
   const [userProfile, setUserProfile] = useState('');
   const [jobDescription, setJobDescription] = useState('');
   const [processedUserProfile, setProcessedUserProfile] = useState('');
   const [processedJobDescription, setProcessedJobDescription] = useState('');
 
   const sharedState: SharedState = {
-    userURL,
-    setUserURL,
-    jobURL,
-    setJobURL,
+    userUrl,
+    setUserUrl,
+    jobUrl,
+    setJobUrl,
     userProfile,
     setUserProfile,
     jobDescription,
