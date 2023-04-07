@@ -12,7 +12,7 @@ interface FormProps {
 
 const Form: React.FC<FormProps> = ({ userUrl, jobUrl, setUserUrl, setJobUrl, handleSubmit }) => {
   return (
-    <form onSubmit={handleSubmit} className="">
+    <form onSubmit={handleSubmit} className="" data-testid= "form">
       <InputField
         id="linkedinUrl"
         label="https://www.linkedin.com/in/reidhoffman/" //TODO: "Your LinkedIn Url"
