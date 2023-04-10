@@ -84,6 +84,7 @@ export default function Home() {
         setError(null);
       }
       const data = await response.json();
+      console.log(data)
       return data.data;
     } catch (error) {
       console.log(error);
@@ -96,7 +97,7 @@ export default function Home() {
       model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: input }],
       temperature: 0.2,
-      max_tokens: 1000,
+      max_tokens: 4000,
     };
   
     const response = await fetchChatCompletion(requestOptions);
@@ -134,12 +135,14 @@ export default function Home() {
       console.log(`userProfile: ${fetchedUserProfile}`);
       // const splitUserProfile = fetchedUserProfile.split("User Agreement\nPrivacy Policy")
 
-      const profileInputChunks = fetchedUserProfile.substring(0, 1000);
-      console.log(profileInputChunks)
-
+      const profileInputChunks = fetchedUserProfile.substring(0, 4000);
+      //console.log(profileInputChunks)
+      // add all substrings into a single string
+      //const profileInput = profileInputChunks.join("\n");
+      //console.log(profileInput)
       //for (const chunk of profileInputChunks) {
       console.log(`Making an OpenAI request with: ${profileInputChunks}`)
-      const userProfileSummary = await fetchOpenAIResponse(profileInputChunks);
+      const userProfileSummary = await fetchOpenAIResponse(profileInputChunks) //profileInput);
       //userProfileSummaryChunks.push(userProfileSummaryChunk);
       
       // const userProfileSummary = userProfileSummaryChunks.join("\n");

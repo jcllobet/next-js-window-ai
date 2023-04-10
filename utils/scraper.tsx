@@ -35,7 +35,7 @@ export async function getAllVisibleText(url: string): Promise<string> {
   console.log('Visible text extracted:');
   //console.log(visibleText);
 
-  //await browser.close();
+  await browser.close();
   //console.log('Browser closed.');
 
   return visibleText;
