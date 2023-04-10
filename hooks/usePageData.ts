@@ -1,3 +1,4 @@
+// hooks/usePageData.ts
 import { useState, useCallback } from "react";
 
 export const usePageData = () => {
@@ -11,10 +12,7 @@ export const usePageData = () => {
       },
       body: JSON.stringify({ search: url }),
     });
-
-    const data = await response.json();
-    setPageData(data);
-    return data;
+    return response;
   }, []);
 
   return { pageData, fetchPageData };
