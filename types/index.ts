@@ -21,3 +21,9 @@ export interface RequestOptions extends Messages {
   logit_bias?: Map<number, number>;
   user?: string;
 }
+
+export interface Data {
+  name: string;
+  data?: string;
+  error?: { content: string };
+}

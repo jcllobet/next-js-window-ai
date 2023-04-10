@@ -75,17 +75,8 @@ export default function Home() {
   
   async function fetchUrl(givenUrl: string) {
     try {
-      const response = await fetchPageData(givenUrl);
-      if (!response || response.status !== 200) {
-        const errorMessage = `Error: Request failed with status ${response?.status}`;
-        setError(errorMessage);
-        throw new Error(errorMessage);
-      } else {
-        setError(null);
-      }
-      const data = await response.json();
-      console.log(data)
-      return data.data;
+      const data = await fetchPageData(givenUrl);
+      return data
     } catch (error) {
       console.log(error);
     }
