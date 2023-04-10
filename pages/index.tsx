@@ -4,8 +4,6 @@
 import React, { ChangeEvent, FormEvent, useState, useEffect, useRef, useContext } from 'react';
 import Head from "next/head";
 import { useRouter } from 'next/router';
-import { get_encoding } from "@dqbd/tiktoken";
-
 
 // Components
 import Form from "../components/Form";
@@ -53,23 +51,17 @@ export default function Home() {
     setProcessedJobDescription,
   } = sharedState;
 
-  function chunkText(text: string, maxTokens: number) {
-    const encoding = get_encoding("cl100k_base");
-    const tokens = encoding.encode(text);
+  function splitText(text: string, maxWords: number) {
+    const words = text.split(" ");
     const chunks = [];
   
-    let start = 0;
-    let end = maxTokens;
-  
-    while (start < tokens.length) {
-      end = Math.min(end, tokens.length);
-      chunks.push(encoding.decode(tokens.slice(start, end)));
-      start = end;
-      end += maxTokens;
+    for (let i = 0; i < words.length; i += maxWords) {
+      chunks.push(words.slice(i, i + maxWords).join(" "));
     }
   
     return chunks;
   }
+  
   
 
   const requestOptions: RequestOptions = {
@@ -99,12 +91,12 @@ export default function Home() {
   }
   
 
-  async function fetchOpenAIResponse(input: string | Uint8Array) {
+  async function fetchOpenAIResponse(input: string) {
     const requestOptions: RequestOptions = {
       model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: input }],
-      temperature: 0.8,
-      max_tokens: 100,
+      temperature: 0.2,
+      max_tokens: 1000,
     };
   
     const response = await fetchChatCompletion(requestOptions);
@@ -140,17 +132,17 @@ export default function Home() {
       // Temporary storage of the fetched data to ensure that generate awaits the fetch
       const fetchedUserProfile = await fetchUrl(userUrl);
       console.log(`userProfile: ${fetchedUserProfile}`);
-      const splitUserProfile = fetchedUserProfile.split("User Agreement\nPrivacy Policy");
+      // const splitUserProfile = fetchedUserProfile.split("User Agreement\nPrivacy Policy")
 
-      const profileInputChunks = chunkText(splitUserProfile, 4000);
-      const userProfileSummaryChunks = [];
+      const profileInputChunks = fetchedUserProfile.substring(0, 1000);
+      console.log(profileInputChunks)
 
-      for (const chunk of profileInputChunks) {
-        const userProfileSummaryChunk = await fetchOpenAIResponse(chunk);
-        userProfileSummaryChunks.push(userProfileSummaryChunk);
-      }
-
-      const userProfileSummary = userProfileSummaryChunks.join("\n");
+      //for (const chunk of profileInputChunks) {
+      console.log(`Making an OpenAI request with: ${profileInputChunks}`)
+      const userProfileSummary = await fetchOpenAIResponse(profileInputChunks);
+      //userProfileSummaryChunks.push(userProfileSummaryChunk);
+      
+      // const userProfileSummary = userProfileSummaryChunks.join("\n");
       console.log(`userProfileSummary: ${userProfileSummary}`);
 
       // const userProfileSummary = await fetchOpenAIResponse(profileInput) //"If you can hear me say POTATO")
