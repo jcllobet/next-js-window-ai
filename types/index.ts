@@ -22,8 +22,8 @@ export interface RequestOptions extends Messages {
   user?: string;
 }
 
-export interface Data {
-  name: string;
-  data?: string;
-  error?: { content: string };
-}
+// export interface Data {
+//   name: string;
+//   data?: string;
+//   error?: { content: string };
+// }

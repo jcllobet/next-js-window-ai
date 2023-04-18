@@ -1,18 +1,16 @@
 // pages/api/scraper.ts
 import { NextApiRequest, NextApiResponse } from "next";
 import { getAllVisibleText } from "../../utils/scraper";
-import { Data } from "../../types";
+// import { Data } from "../../types";
 
 // const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const scraperHandler = async (
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) => {
+const scraperHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const url = req.body.search;
+
+  console.log("Request body:", req.body);
+
   if (!url || typeof url !== "string") {
-    console.log(req);
-    console.log(url);
     res.status(400).json({
       name: "Invalid URL parameter",
       error: {
@@ -21,21 +19,26 @@ const scraperHandler = async (
         )} Type: ${typeof url}`,
       },
     });
+    console.log("Invalid URL parameter:", url, typeof url);
     return;
   }
+
+  let scrapedText;
   try {
-    const scrapedText = await getAllVisibleText(url);
-    //console.log(typeof scrapedText);
-    //console.log(scrapedText);
-    res.status(200).json({ name: "Scraped Text", data: scrapedText });
-    //return res;
+    scrapedText = await getAllVisibleText(url);
   } catch (error) {
-    console.error("Error scraping the URL:", error);
+    console.error("Error in getAllVisibleText:", error);
     res.status(500).json({
       name: "Scraping Error",
-      error: { content: "Error scraping the URL" },
+      error: { content: "Error in getAllVisibleText function" },
     });
+    return;
   }
+
+  console.log("Scraped text type:", typeof scrapedText);
+  console.log("Scraped text content:", scrapedText);
+
+  res.status(200).json({ name: "Scraped Text", data: scrapedText });
 };
 
 export default scraperHandler;

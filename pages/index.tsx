@@ -19,7 +19,7 @@ import { useChatCompletion } from '@/hooks/useChatCompletion';
 import styles from "../styles/Home.module.css";
 
 //Types
-import { Message, Messages, RequestOptions } from '../types/index';
+import { Message, RequestOptions } from '../types/index';
 
 
 export default function Home() {
@@ -63,24 +63,6 @@ export default function Home() {
   }
   
   
-
-  const requestOptions: RequestOptions = {
-    model: "gpt-3.5-turbo",
-    messages: [
-      { role: "user", content: "If you can hear me, say POTATO" },
-    ],
-    temperature: 0.8,
-    max_tokens: 100,
-  };
-  
-  async function fetchUrl(givenUrl: string) {
-    try {
-      const data = await fetchPageData(givenUrl);
-      return data
-    } catch (error) {
-      console.log(error);
-    }
-  }
   
 
   async function fetchOpenAIResponse(input: string) {
@@ -122,18 +104,19 @@ export default function Home() {
   
     try {
       // Temporary storage of the fetched data to ensure that generate awaits the fetch
-      const fetchedUserProfile = await fetchUrl(userUrl);
-      console.log(`userProfile: ${fetchedUserProfile}`);
+      // const fetchedUserProfile = await fetchPageData(userUrl);
+      // console.log(`userProfile: ${fetchedUserProfile}`);
+      // console.log(fetchedUserProfile)
       // const splitUserProfile = fetchedUserProfile.split("User Agreement\nPrivacy Policy")
 
-      const profileInputChunks = fetchedUserProfile.substring(0, 4000);
+      //const profileInputChunks = fetchedUserProfile.substring(0, 4000);
       //console.log(profileInputChunks)
       // add all substrings into a single string
       //const profileInput = profileInputChunks.join("\n");
       //console.log(profileInput)
       //for (const chunk of profileInputChunks) {
-      console.log(`Making an OpenAI request with: ${profileInputChunks}`)
-      const userProfileSummary = await fetchOpenAIResponse(profileInputChunks) //profileInput);
+      console.log(`Making an OpenAI request`)
+      const userProfileSummary = await fetchOpenAIResponse( `If you can hear me say POTATO`) //profileInputChunks) //profileInput);
       //userProfileSummaryChunks.push(userProfileSummaryChunk);
       
       // const userProfileSummary = userProfileSummaryChunks.join("\n");
@@ -163,22 +146,6 @@ export default function Home() {
     }
   }
 
-  // useEffect(() => {
-  //   async function aggregateResponses() {
-  //     // Combine userProfileSummary and jobDescriptionSummary
-  //     const combinedInput = `${processedUserProfile} ${processedJobDescription}`;
-  //     // Send the aggregated input to the API
-  //     const aggregatedResponse = await fetchOpenAIResponse(combinedInput);
-  //     // Set the aggregated response as the final message
-  //     const finalMessage: Message = { role: 'ai', content: aggregatedResponse };
-  //     setMessages([...messages, finalMessage]);
-  //   }
-  
-  //   if (processedUserProfile && processedJobDescription) {
-  //     aggregateResponses();
-  //   }
-  // }, [processedUserProfile, processedJobDescription]);
-  
 
 
   return (
