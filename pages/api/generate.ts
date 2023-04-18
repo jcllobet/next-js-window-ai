@@ -30,6 +30,7 @@ async function createChatCompletion(requestOptions: RequestOptions) {
     return response.data.choices;
   } catch (error) {
     console.error("Error creating chat completion:", error);
+    throw error
   }
 }
 

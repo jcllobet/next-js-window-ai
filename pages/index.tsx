@@ -11,22 +11,18 @@ import Form from "../components/Form";
 // Contexts
 import SharedContext from '../contexts/SharedContext';
 
-//Hooks
-import { usePageData } from '../hooks/usePageData';
-import { useChatCompletion } from '@/hooks/useChatCompletion';
 
 // Styles
 import styles from "../styles/Home.module.css";
 
 //Types
 import { Message, RequestOptions } from '../types/index';
+import { fetchPageData, fetchSummary } from '@/utils/apiClient';
 
 
 export default function Home() {
   const sharedState = useContext(SharedContext);
   const [error, setError] = useState<string | null>(null);
-  const { fetchPageData } = usePageData();
-  const { fetchChatCompletion } = useChatCompletion();
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
@@ -61,9 +57,6 @@ export default function Home() {
   
     return chunks;
   }
-  
-  
-  
 
   async function fetchOpenAIResponse(input: string) {
     const requestOptions: RequestOptions = {
@@ -73,7 +66,7 @@ export default function Home() {
       max_tokens: 4000,
     };
   
-    const response = await fetchChatCompletion(requestOptions);
+    const response = await fetchSummary(requestOptions);
   
     if (!response || response.status !== 200) {
       const errorMessage = `Error: Request failed with status ${response?.status}`;
@@ -86,8 +79,6 @@ export default function Home() {
     const data = await response.json();
     return data.message;
   }
-  
-  
 
   function resetForm() {
     setUserUrl('');
@@ -104,23 +95,24 @@ export default function Home() {
   
     try {
       // Temporary storage of the fetched data to ensure that generate awaits the fetch
-      // const fetchedUserProfile = await fetchPageData(userUrl);
+      const fetchedUserProfile = await fetchPageData(userUrl);
       // console.log(`userProfile: ${fetchedUserProfile}`);
       // console.log(fetchedUserProfile)
-      // const splitUserProfile = fetchedUserProfile.split("User Agreement\nPrivacy Policy")
-
-      //const profileInputChunks = fetchedUserProfile.substring(0, 4000);
+      
+      const profileText = fetchedUserProfile.data
+      const profileInputChunks = profileText.substring(0, 4000);
       //console.log(profileInputChunks)
       // add all substrings into a single string
       //const profileInput = profileInputChunks.join("\n");
       //console.log(profileInput)
       //for (const chunk of profileInputChunks) {
-      console.log(`Making an OpenAI request`)
-      const userProfileSummary = await fetchOpenAIResponse( `If you can hear me say POTATO`) //profileInputChunks) //profileInput);
+      const prompt = `Summary the following text ${profileInputChunks}`
+      console.log('prompt', prompt);
+      const userProfileSummary = await fetchOpenAIResponse(prompt) //profileInputChunks) //profileInput);
       //userProfileSummaryChunks.push(userProfileSummaryChunk);
       
       // const userProfileSummary = userProfileSummaryChunks.join("\n");
-      console.log(`userProfileSummary: ${userProfileSummary}`);
+      console.log('userProfileSummary', userProfileSummary);
 
       // const userProfileSummary = await fetchOpenAIResponse(profileInput) //"If you can hear me say POTATO")
       // console.log(`userProfileSummary: ${userProfileSummary}`);
@@ -141,12 +133,10 @@ export default function Home() {
       const initialMessage: Message = { role: 'user', content: `${processedUserProfile} ${processedJobDescription}` };
       setMessages([...messages, initialMessage]);
       resetForm();
-    } catch {
-      return;
+    } catch(e) {
+      throw e;
     }
   }
-
-
 
   return (
     <div className={styles.container}>
