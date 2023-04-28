@@ -67,17 +67,20 @@ export default function Home() {
     };
   
     const response = await fetchSummary(requestOptions);
+
+    console.log("(index.tsx) fetchOpenAIResponse Response message:", response.message.content); // Add this line to log the response
   
-    if (!response || response.status !== 200) {
+    /*if (!response || response.status !== 200) {
       const errorMessage = `Error: Request failed with status ${response?.status}`;
       setError(errorMessage);
       throw new Error(errorMessage);
     } else {
       setError(null);
-    }
+    } */
   
-    const data = await response.json();
-    return data.message;
+    //const data = await response.json();
+    const messageText = response.message.content;
+    return messageText;
   }
 
   function resetForm() {
