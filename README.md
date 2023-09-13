@@ -10,7 +10,6 @@ This is a simple Next JS application that demonstrates how to integrate [window.
 - Loading state while waiting for the AI to respond
 - Responsive design
 
-Built by [Yanni](https://twitter.com/YKouloumbis) & [Nolan](https://twitter.com/nolangclement).
 
 ## Installation
 
